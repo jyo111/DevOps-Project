@@ -1,5 +1,5 @@
 ---
-   - hosts: localhost
+   - hosts: webservers
      #remote_user: root
      become: true
      #sudo: yes
