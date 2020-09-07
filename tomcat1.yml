@@ -3,6 +3,6 @@
   become: true
  
   tasks:
-  - name: installing java 
-    apt: nginx state=latest
+   - name: installing java 
+     apt: nginx state=latest
 
