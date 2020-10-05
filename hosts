@@ -1,2 +1,2 @@
-node ansible_host=3.17.63.124 ansible_port=22 ansible_user=root
+node ansible_host=3.137.168.16 ansible_port=22 ansible_user=ubuntu
 
