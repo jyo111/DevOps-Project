@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: webserver
   tasks:
   - name: installing java 
     apt: package=openjdk-8-jdk state=latest
