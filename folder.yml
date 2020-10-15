@@ -1,5 +1,5 @@
 ---
-   - hosts: node
+   - hosts: localhost
      #remote_user: ansible
      become: true
      #sudo: yes
