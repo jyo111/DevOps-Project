@@ -1,6 +1,6 @@
 ---
 - name: tree
-  hosts: node
+  hosts: 3.133.156.46
   tasks:
    - name: install tree
      apt:
