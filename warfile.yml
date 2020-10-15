@@ -18,5 +18,5 @@
     shell: cp /home/ubuntu/DevOpsRocks.war /home/ubuntu/apache-tomcat-10.0.0-M9/webapps/
 
   - name: start apache-tomcat-10.0.0-M9
-    shell: /home/ubuntu/apache-tomcat-10.0.0-M9/bin/startup.sh
+    shell: /home/ubuntu/apache-tomcat-10.0.0-M9/bin/./startup.sh
 
