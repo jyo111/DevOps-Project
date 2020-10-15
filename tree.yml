@@ -1,6 +1,6 @@
 ---
 - name: tree
-  hosts: 18.191.157.241
+  hosts: webserver
   tasks:
    - name: install tree
      apt:
