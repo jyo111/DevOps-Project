@@ -1,5 +1,5 @@
 ---
-   - hosts: localhost
+   - hosts: 3.133.156.46
      #remote_user: ansible
      become: true
      #sudo: yes
