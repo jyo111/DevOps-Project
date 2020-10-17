@@ -1,1 +1,1 @@
-from tomcat:8.0.36 -jre8
+from tomcat:8.0.36-jre8
