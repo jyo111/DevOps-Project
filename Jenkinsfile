@@ -1,28 +1,18 @@
 pipeline {
-    agent any 
-    environment {
-        PATH ="/opt/apache-maven-3/bin:$PATH"
-    }   
+    agent any
     stages {
-        stage('SCM checkout') {
+        stage('scm checkout') {
             steps {
                 git 'https://github.com/jyo111/DevOps-Project.git'
             }
         }
-        stage('compile-package') {
+        stage('ansible playbook execution') {
             steps {
-                sh "mvn clean package"
-            }
-        }
-        stage('email-notification') {
-            steps {
-                mail bcc: '',
-                body: 'This is my first email pipeline',
-                cc: 'jyothischalla@gmail.com',
-                from: '',
-                replyTo: '',
-                subject: 'jenkins pipeline email',
-                to: 'jyothichalla456@gmail.com'
+                ansiblePlaybook credentialsId: 'ansible-jenkins',
+                disableHostKeyChecking: true,
+                installation: 'ansible',
+                inventory: 'hosts',
+                playbook: 'folder.yml'
             }
         }
     }
