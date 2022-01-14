@@ -17,7 +17,7 @@ pipeline {
         stage('deploy warfile to tomcat') {
             steps {
                 sshagent(['jenkins_github_pem']) {               
-                sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/tomcat_project/target/DevOpsRocks.war jyothi@172.31.33.88:/home/jyothi/tomcat-9/webapps"
+                sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/tomcat_project/target/DevOpsRocks.war jyothi@3.144.245.42:/home/jyothi/tomcat-9/webapps"
                 }
             }
         }
