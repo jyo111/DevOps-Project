@@ -18,7 +18,7 @@ pipeline {
     post {
         success {
             slackSend baseUrl: 'https://hooks.slack.com/services/',
-            channel: 'jyothi challa',
+            channel: 'slack_practice',
             color: 'good',
             message: '"Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"',
             tokenCredentialId: 'slack_practice',
@@ -26,7 +26,7 @@ pipeline {
         }
         failure {
             slackSend baseUrl: 'https://hooks.slack.com/services/',
-            channel: 'jyothi challa',
+            channel: 'slack_practice',
             color: 'red',
             message: '"Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"',
             tokenCredentialId: 'slack_practice',
