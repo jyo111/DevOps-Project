@@ -1,25 +1,36 @@
 pipeline {
     agent any
     environment {
-        PATH = "/home/jyothi/apache-maven-3/bin:$PATH"
+        PATH = "/home/ubuntu/apache-maven-3/bin:$PATH"
     }
     stages {
-        stage('checkout the code from scm') {
+        stage('scm checkout') {
             steps {
-                git credentialsId: 'jenkins_github_pem', url: 'https://github.com/jyo111/DevOps-Project.git'
+                git 'https://github.com/jyo111/DevOps-Project.git'
             }
         }
         stage('build') {
             steps {
-                sh 'mvn clean install'
+                sh 'mvn clean package'
             }
-        } 
-        stage('deploy warfile to tomcat') {
-            steps {
-                sshagent(['jenkins_github_pem']) {               
-                sh "scp -o StrictHostKeyChecking=no target/DevOpsRocks.war jyothi@3.144.245.42:/home/jyothi/tomcat-9/webapps"
-                }
-            }
+        }
+    }
+    post {
+        success {
+            slackSend baseUrl: 'https://hooks.slack.com/services/',
+            channel: 'jyothi challa',
+            color: 'good',
+            message: '"Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"',
+            tokenCredentialId: 'slack_practice',
+            username: 'jyothi'
+        }
+        failure {
+            slackSend baseUrl: 'https://hooks.slack.com/services/',
+            channel: 'jyothi challa',
+            color: 'red',
+            message: '"Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"',
+            tokenCredentialId: 'slack_practice',
+            username: 'jyothi'
         }
     }
 }
